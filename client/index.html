@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZySRa</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="theme-dark">
+    <div class="app">
+        <aside class="sidebar">
+            <div class="panel profile-panel">
+                <div class="profile-top">
+                    <div id="myAvatar" class="avatar big">🙂</div>
+                    <div>
+                        <div id="myName" class="profile-name">Guest</div>
+                        <div id="myRoom" class="profile-sub">Room: general</div>
+                    </div>
+                </div>
+                <div class="side-actions">
+                    <button id="themeToggle" class="secondary-btn">Toggle Theme</button>
+                    <button id="soundToggle" class="secondary-btn">Sound On</button>
+                    <button id="autoScrollToggle" class="secondary-btn">Auto Scroll On</button>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h3>Room</h3>
+                <div class="row">
+                    <input id="roomInput" type="text" placeholder="general" />
+                    <button id="joinRoomBtn">Join</button>
+                </div>
+                <div class="hint">Create or join any room name.</div>
+            </div>
+
+            <div class="panel">
+                <h3>People <span id="roomCount" class="badge">0</span></h3>
+                <div id="usersList" class="users-list"></div>
+            </div>
+        </aside>
+
+        <main class="main">
+            <header class="header panel">
+                <div>
+                    <div id="conversationTitle" class="conversation-title">Room: general</div>
+                    <div id="conversationSub" class="conversation-sub">Public chat</div>
+                </div>
+
+                <div class="header-actions">
+                    <input id="searchInput" class="search" type="text" placeholder="Search messages" />
+                    <button id="clearSearchBtn" class="secondary-btn">Clear</button>
+                    <button id="exportBtn" class="secondary-btn">Export</button>
+                    <button id="backToRoomBtn" class="secondary-btn hidden">Back to room</button>
+                </div>
+            </header>
+
+            <div id="statsBar" class="stats-bar panel"></div>
+            <div id="pinnedBar" class="pinned-bar panel hidden"></div>
+            <div id="searchInfo" class="search-info hidden"></div>
+
+            <section id="messages" class="messages panel"></section>
+
+            <div id="typing" class="typing hidden"></div>
+
+            <div id="replyBar" class="reply-bar panel hidden">
+                <div class="reply-meta">
+                    <strong>Replying to</strong>
+                    <span id="replyText"></span>
+                </div>
+                <button id="cancelReplyBtn" class="secondary-btn">Cancel</button>
+            </div>
+
+            <section class="composer panel">
+                <button id="emojiBtn" class="icon-btn" title="Emoji">😊</button>
+                <button id="attachBtn" class="icon-btn" title="Attach file">📎</button>
+                <input id="fileInput" type="file" class="hidden" />
+                <input id="messageInput" type="text" placeholder="Type a message" />
+                <button id="sendBtn">Send</button>
+            </section>
+
+            <div class="composer-footer">
+                <span id="charCount">0 chars</span>
+                <span>Enter sends</span>
+            </div>
+
+            <div id="emojiPicker" class="emoji-picker panel hidden"></div>
+        </main>
+    </div>
+
+    <div id="nameModal" class="modal">
+        <div class="modal-card panel">
+            <h2>Enter your profile</h2>
+            <p>Pick a name, choose an avatar, then join.</p>
+
+            <input id="nameInput" type="text" placeholder="Your name" />
+
+            <div class="avatar-picker-wrap">
+                <div class="avatar-picker-label">Avatar</div>
+                <div id="avatarPicker" class="avatar-picker"></div>
+            </div>
+
+            <button id="joinBtn" class="join-btn">Join Chat</button>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
