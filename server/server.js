@@ -411,13 +411,6 @@ io.on("connection", (socket) => {
         emitRoomUsers(me.room);
     });
 });
-
-server.listen(3000, () => {
-    const PORT = process.env.PORT || 3000;
-
-server.listen(PORT, () => {
-    console.log("Server running on port " + PORT);
-});
 // ===== ADD-ON PACK: forward + presence + richer room users =====
 const presenceRecords = new Map(); // socket.id -> { name, avatar, room, lastSeen, online }
 
@@ -563,3 +556,9 @@ try {
 } catch (err) {
     console.warn("Could not raise Socket.IO buffer size:", err?.message || err);
 }
+// ===== FINAL SERVER START (CLEAN) =====
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, () => {
+    console.log("Server running on port " + PORT);
+});
